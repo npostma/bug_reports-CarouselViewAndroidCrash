@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarouselAndroidDemo.Views.CarouselPage"
+             Title="{Binding Title}"
+             xmlns:model="clr-namespace:CarouselAndroidDemo.Models"  
+             xmlns:vm="clr-namespace:CarouselAndroidDemo.ViewModels"
+             xmlns:vme="clr-namespace:CarouselAndroidDemo.ViewModels.Element"
+             >
+
+
+    <StackLayout
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+    <CarouselView 
+            ItemsSource="{Binding CarouselItems}" 
+            BackgroundColor="Red"
+            x:Name="carouselView"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+        >
+        <CarouselView.ItemTemplate
+                >
+            <DataTemplate
+                    x:DataType="vme:CarouselCardViewModel">
+                <StackLayout>
+                    <Frame 
+                            BorderColor="DarkSlateGray"
+                            CornerRadius="10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand"
+                            >
+                        <StackLayout>
+                            <Image Source="{Binding Image.Source}">
+                            </Image>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+
+    </StackLayout>
+
+
+</ContentPage>
